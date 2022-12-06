@@ -1,0 +1,1 @@
+"conditions and loops" solved tasks
