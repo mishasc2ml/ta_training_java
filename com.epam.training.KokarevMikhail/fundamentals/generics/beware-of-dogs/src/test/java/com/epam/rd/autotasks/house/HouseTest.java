@@ -13,7 +13,6 @@ import java.lang.reflect.Type;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HouseTest {
-
     @Test
     void shouldCheckGenericTypeParameters() {
         Type[] houseTypes = House.class.getTypeParameters();
