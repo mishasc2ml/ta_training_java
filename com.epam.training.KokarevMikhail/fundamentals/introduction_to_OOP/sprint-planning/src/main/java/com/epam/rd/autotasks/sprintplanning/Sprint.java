@@ -15,18 +15,31 @@ public class Sprint {
         this.ticketsLimit = ticketsLimit;
         sprintTickets = new Ticket[ticketsLimit];
     }
+
     public boolean addUserStory(UserStory userStory) {
         if (userStory == null || userStory.isCompleted() || ticketsLimit == 0 || capacity - userStory.getEstimate() < 0) {
             return false;
         }
+        boolean flag; // dependency check
+        int counterUncompleted = 0;
+        int counterCompleted = 0;
         for (UserStory userStory1 : userStory.getDependencies()) {
-            if (!userStory1.isCompleted()) return false;
+            if (!userStory1.isCompleted()) {
+                counterUncompleted++;
+                for (Ticket ticket : sprintTickets)
+                    if (userStory1 == ticket)
+                        counterCompleted++;
+            }
         }
+        flag = counterCompleted == counterUncompleted;
+
+        if (!flag) return false;
         sprintTickets[position++] = userStory;
         ticketsLimit--;
         capacity -= userStory.getEstimate();
         return true;
     }
+
     public boolean addBug(Bug bugReport) {
         if (bugReport == null || bugReport.isCompleted() || ticketsLimit == 0 || capacity - bugReport.getEstimate() < 0) {
             return false;
@@ -36,11 +49,13 @@ public class Sprint {
         capacity -= bugReport.getEstimate();
         return true;
     }
+
     public Ticket[] getTickets() {
         Ticket[] tickets = new Ticket[position];
         System.arraycopy(sprintTickets, 0, tickets, 0, position);
         return tickets;
     }
+
     public int getTotalEstimate() {
         int sum = 0;
         for (int i = 0; i < position; i++) {
