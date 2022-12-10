@@ -1,0 +1,1 @@
+"generics" solved tasks

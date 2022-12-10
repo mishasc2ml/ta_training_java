@@ -1,0 +1,1 @@
+"abstract classes and interfaces" solved tasks
