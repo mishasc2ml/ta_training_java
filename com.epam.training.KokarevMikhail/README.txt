@@ -1,0 +1,1 @@
+1 stage: maven, jenkins, java basics, clean-code.
