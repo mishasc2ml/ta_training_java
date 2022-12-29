@@ -1,6 +1,6 @@
 /shelf/
-/workspace.xml
 out/
 *.iml
 target/
 .idea/
+*.xml
