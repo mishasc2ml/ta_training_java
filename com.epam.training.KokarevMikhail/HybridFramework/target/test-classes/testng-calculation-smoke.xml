@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-
-<suite name="Smoke_1" verbose="1">
-    <test name="Calculation test">
-        <classes>
-            <class name="framework.test.CalculatorPageTest"/>
-        </classes>
-    </test>
-</suite>
