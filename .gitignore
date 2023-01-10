@@ -1,6 +1,7 @@
 /shelf/
 out/
-*.iml
-target/
 .idea/
-*.xml
+*.iws
+*.iml
+*.ipr
+*.log
