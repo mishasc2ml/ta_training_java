@@ -6,39 +6,57 @@ import org.testng.annotations.Test;
 public class LoginTests {
     @Test
     public void testMailCorrectLogin() {
-        MailLogin correctLogin = new MailLogin();
-        Assert.assertTrue(correctLogin.mailLogin("seleniumtest123@mail.ru", "Ytrewq9191"));
-        correctLogin.webDriver.quit();
+        Login mailCorrectLogin = new Login();
+        mailCorrectLogin.mailLogin(ConfProperties.getProperty("mail-login"), ConfProperties.getProperty("mail-password"));
+        Assert.assertTrue(mailCorrectLogin.isSuccessfulMailLogin());
     }
 
     @Test
     public void testMailIncorrectLogins() {
-        MailLogin incorrectLogin = new MailLogin();
-        MailLogin incorrectPassword = new MailLogin();
-        MailLogin emptyLogin = new MailLogin();
-        MailLogin emptyPassword = new MailLogin();
-        Assert.assertFalse(incorrectLogin.mailLogin("seleniumtest1234@mail.ru", "Ytrewq9191"));
-        Assert.assertFalse(incorrectPassword.mailLogin("seleniumtest123@mail.ru", "Ytrewq919191"));
-        Assert.assertFalse(emptyLogin.mailLogin("", "Ytrewq9191"));
-        Assert.assertFalse(emptyPassword.mailLogin("seleniumtest1234@mail.ru", ""));
+        Login incorrectMailLogin = new Login();
+        Login incorrectMailPassword = new Login();
+        Login emptyMailLogin = new Login();
+        Login emptyMailPassword = new Login();
+
+        incorrectMailLogin.mailLogin("seleniumtest1234@mail.ru", "Ytrewq9191");
+        Assert.assertFalse(incorrectMailLogin.isSuccessfulMailLogin());
+
+        incorrectMailPassword.mailLogin("seleniumtest123@mail.ru", "Ytrewq919191");
+        Assert.assertFalse(incorrectMailPassword.isSuccessfulMailLogin());
+
+        emptyMailLogin.mailLogin("", "Ytrewq9191");
+        Assert.assertFalse(emptyMailLogin.isSuccessfulMailLogin());
+
+        emptyMailPassword.mailLogin("seleniumtest1234@mail.ru", "");
+        Assert.assertFalse(emptyMailPassword.isSuccessfulMailLogin());
+
     }
 
     @Test
     public void testYandexCorrectLogin() {
-        YandexLogin correctLogin = new YandexLogin();
-        Assert.assertTrue(correctLogin.yandexLogin("seleniumtest1234567@yandex.ru", "Ytrewq9191"));
-        correctLogin.webDriver.quit();
+        Login yandexCorrectLogin = new Login();
+        yandexCorrectLogin.yandexLogin(ConfProperties.getProperty("yandex-login"), ConfProperties.getProperty("yandex-password"));
+        Assert.assertTrue(yandexCorrectLogin.isSuccessfulYandexLogin());
     }
 
     @Test
     public void testYandexIncorrectLogins() {
-        YandexLogin incorrectLogin = new YandexLogin();
-        YandexLogin incorrectPassword = new YandexLogin();
-        YandexLogin emptyLogin = new YandexLogin();
-        YandexLogin emptyPassword = new YandexLogin();
-        Assert.assertFalse(incorrectLogin.yandexLogin("seleniumtest12345672121@yandex.ru", "Ytrewq9191"));
-        Assert.assertFalse(incorrectPassword.yandexLogin("seleniumtest1234567@yandex.ru", "Ytrewq919191"));
-        Assert.assertFalse(emptyLogin.yandexLogin("", "Ytrewq9191"));
-        Assert.assertFalse(emptyPassword.yandexLogin("seleniumtest1234567@yandex.ru", ""));
+        Login incorrectYandexLogin = new Login();
+        Login incorrectYandexPassword = new Login();
+        Login emptyYandexLogin = new Login();
+        Login emptyYandexPassword = new Login();
+
+        incorrectYandexLogin.yandexLogin("seleniumtest12345672121@yandex.ru", "Ytrewq9191");
+        Assert.assertFalse(incorrectYandexLogin.isSuccessfulYandexLogin());
+
+        incorrectYandexPassword.yandexLogin("seleniumtest1234567@yandex.ru", "Ytrewq919191");
+        Assert.assertFalse(incorrectYandexPassword.isSuccessfulYandexLogin());
+
+        emptyYandexLogin.yandexLogin("", "Ytrewq9191");
+        Assert.assertFalse(emptyYandexLogin.isSuccessfulYandexLogin());
+
+        emptyYandexPassword.yandexLogin("seleniumtest1234567@yandex.ru", "");
+        Assert.assertFalse(emptyYandexPassword.isSuccessfulYandexLogin());
+
     }
 }
