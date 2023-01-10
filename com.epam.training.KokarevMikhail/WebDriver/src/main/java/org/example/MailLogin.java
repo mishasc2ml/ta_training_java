@@ -28,4 +28,5 @@ public class MailLogin extends WebDriverSetUp {
             return false;
         }
     }
+
 }
