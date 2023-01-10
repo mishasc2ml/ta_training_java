@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke_2" verbose="1">
+    <test name="Send email test">
+        <classes>
+            <class name="framework.test.InboxPageTest"/>
+        </classes>
+    </test>
+</suite>
