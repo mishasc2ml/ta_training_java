@@ -22,13 +22,13 @@ public class CalculatorPage extends AbstractPage {
     By dataCenterLocationSelectionElement = By.xpath("//form[@name='ComputeEngineForm']//label[contains(text(), 'Datacenter location')]/following-sibling::md-select");
     By committedUsageSelectionElement = By.xpath("//form[@name='ComputeEngineForm']//label[contains(text(), 'Committed usage')]/following-sibling::md-select");
     By addToEstimateBtn = By.xpath("//button[@ng-click='listingCtrl.addComputeServer(ComputeEngineForm);']");
-    private final String emptyVariantSelectionByValueXpath = "//div[contains(@class, 'md-active') and contains(@class, 'md-clickable')]//md-option//div[contains(text(), '%s')]";
 
     public CalculatorPage(WebDriver driver) {
         super(driver);
     }
 
     private By formattedVariantSelectionByValueXpath(String value) {
+        String emptyVariantSelectionByValueXpath = "//div[contains(@class, 'md-active') and contains(@class, 'md-clickable')]//md-option//div[contains(text(), '%s')]";
         return By.xpath(String.format(emptyVariantSelectionByValueXpath, value));
     }
 

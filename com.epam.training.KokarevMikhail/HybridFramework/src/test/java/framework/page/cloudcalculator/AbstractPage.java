@@ -1,6 +1,7 @@
 package framework.page.cloudcalculator;
 
 import framework.service.TestDataReader;
+import framework.util.Scripts;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
@@ -33,6 +34,7 @@ public abstract class AbstractPage {
 
     protected WebElement getElement(By by, WebDriver driver) {
         if (isElementPresent(by, driver)) {
+            Scripts.moveToElement(driver.findElement(by), driver);
             return driver.findElement(by);
         } else throw new RuntimeException();
     }

@@ -2,22 +2,21 @@ package framework.model;
 
 public class Calculator {
 
-    private  String numberOfInstances;
-    private  String operatingSystem;
-    private  String provisioningModel;
-    private  String machineFamily;
-    private  String series;
-    private  String machineType;
-    private  String numberOfGPU;
-    private  String typeOfGPU;
-    private  String capacityOfLocalSSD;
-    private  String locationOfDataCenter;
-    private  String commitedUsage;
+    private String numberOfInstances;
+    private String operatingSystem;
+    private String provisioningModel;
+    private String machineFamily;
+    private String series;
+    private String machineType;
+    private String numberOfGPU;
+    private String typeOfGPU;
+    private String capacityOfLocalSSD;
+    private String locationOfDataCenter;
+    private String commitedUsage;
 
     public Calculator(String numberOfInstances, String operatingSystem, String provisioningModel, String machineFamily,
                       String series, String machineType, String numberOfGPU, String typeOfGPU, String capacityOfLocalSSD,
                       String locationOfDataCenter, String commitedUsage) {
-
         this.numberOfInstances = numberOfInstances;
         this.operatingSystem = operatingSystem;
         this.provisioningModel = provisioningModel;
